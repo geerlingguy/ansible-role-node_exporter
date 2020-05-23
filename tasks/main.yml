@@ -49,6 +49,6 @@
 - name: Verify node_exporter is responding to requests.
   uri:
     url: http://localhost:9100/
-    return_content: yes
+    return_content: true
   register: metrics_output
   failed_when: "'Metrics' not in metrics_output.content"
