@@ -44,5 +44,6 @@ galaxy_info:
     - containers
     - monitoring
     - prometheus
-    - node_exporter
+    - node
+    - exporter
     - metrics
