@@ -20,7 +20,7 @@ The version of Node exporter to install. Available releases can be found on the 
 
 If you change the version, the `node_exporter` binary will be replaced with the updated version, and the service will be restarted.
 
-    node_exporter_arch: '{{ ansible_architecture }}'
+    node_exporter_arch: 'amd64'
     node_exporter_download_url: https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-{{ node_exporter_arch }}.tar.gz
 
 The architecture and download URL for Node exporter. If you're on a Raspberry Pi running Raspbian, you may need to override the `arch` value with `armv7l`.
