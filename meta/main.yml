@@ -1,7 +1,7 @@
 ---
 dependencies: []
 galaxy_info:
-  author: Jeff Geerling
+  author: geerlingguy
   role_name: node_exporter
   description: Prometheus' node_exporter for Linux hosts.
   company: Midwestern Mac, LLC
