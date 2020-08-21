@@ -10,6 +10,7 @@
     src: "{{ node_exporter_download_url }}"
     dest: /tmp
     remote_src: true
+    mode: 0755
   when: >
     node_exporter_version_check.stdout is not defined
     or node_exporter_version not in node_exporter_version_check.stdout
@@ -32,6 +33,7 @@
   template:
     src: node_exporter.service.j2
     dest: /etc/systemd/system/node_exporter.service
+    mode: 0644
   register: node_exporter_service
 
 - name: Reload systemd daemon if unit file is changed.
