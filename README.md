@@ -23,7 +23,7 @@ If you change the version, the `node_exporter` binary will be replaced with the 
     node_exporter_arch: 'amd64'
     node_exporter_download_url: https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-{{ node_exporter_arch }}.tar.gz
 
-The architecture and download URL for Node exporter. If you're on a Raspberry Pi running Raspbian, you may need to override the `arch` value with `armv7l`.
+The architecture and download URL for Node exporter. If you're on a Raspberry Pi running Raspbian, you may need to override the `arch` value with `armv7`.
 
     node_exporter_bin_path: /usr/local/bin/node_exporter
 
