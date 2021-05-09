@@ -12,8 +12,8 @@
     remote_src: true
     mode: 0755
   when: >
-    node_exporter_version_check.stdout is not defined
-    or node_exporter_version not in node_exporter_version_check.stdout
+    node_exporter_version_check.stderr is not defined
+    or node_exporter_version not in node_exporter_version_check.stderr
 
 - name: Move node_exporter binary into place.
   copy:
@@ -22,6 +22,9 @@
     mode: 0755
     remote_src: true
   notify: restart node_exporter
+  when: >
+    node_exporter_version_check.stderr is not defined
+    or node_exporter_version not in node_exporter_version_check.stderr
 
 - name: Create node_exporter user.
   user:
