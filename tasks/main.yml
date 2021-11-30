@@ -14,6 +14,7 @@
   when: >
     node_exporter_version_check.stdout is not defined
     or node_exporter_version not in node_exporter_version_check.stdout
+  register: node_exporter_download_check
 
 - name: Move node_exporter binary into place.
   copy:
@@ -22,6 +23,7 @@
     mode: 0755
     remote_src: true
   notify: restart node_exporter
+  when: node_exporter_download_check is defined
 
 - name: Create node_exporter user.
   user:
