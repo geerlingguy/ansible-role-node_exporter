@@ -23,7 +23,7 @@
     mode: 0755
     remote_src: true
   notify: restart node_exporter
-  when: node_exporter_download_check is success
+  when: node_exporter_download_check is changed
 
 - name: Create node_exporter user.
   user:
