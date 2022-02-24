@@ -10,7 +10,7 @@ name: CI
 
 defaults:
   run:
-    working-directory: 'geerlingguy.node_exporter'
+    working-directory: 'jaypee-solutions.node_exporter'
 
 jobs:
 
@@ -21,7 +21,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'geerlingguy.node_exporter'
+          path: 'jaypee-solutions.node_exporter'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
@@ -49,7 +49,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'geerlingguy.node_exporter'
+          path: 'jaypee-solutions.node_exporter'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
