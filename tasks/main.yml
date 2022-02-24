@@ -56,3 +56,4 @@
     return_content: true
   register: metrics_output
   failed_when: "'Metrics' not in metrics_output.content"
+  when: node_exporter_state == "started"
