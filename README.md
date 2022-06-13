@@ -29,6 +29,11 @@ The architecture and download URL for Node exporter. If you're on a Raspberry Pi
 
 The path where the `node_exporter` binary will be installed.
 
+    node_exporter_host: 'localhost'
+    node_exporter_port: 9100
+
+Host and port on which node exporter will listen.
+
     node_exporter_options: ''
 
 Any additional options to pass to `node_exporter` when it starts, e.g. `--no-collector.wifi` if you want to ignore any WiFi data.
