@@ -52,7 +52,7 @@
 
 - name: Verify node_exporter is responding to requests.
   uri:
-    url: "http://{{ node_exporter_host }}:{{ node_exporter_port }}/"
+    url: "http://{{ node_exporter_host_for_check | default(node_exporter_host) }}:{{ node_exporter_port }}/"
     return_content: true
   register: metrics_output
   failed_when: "'Metrics' not in metrics_output.content"
