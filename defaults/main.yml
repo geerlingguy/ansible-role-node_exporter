@@ -1,5 +1,5 @@
 ---
-# Use the latest node_exporter release
+## Use the latest node_exporter release
 node_exporter_version: 'latest'
 
 ## Alternatively, set a specific version
