@@ -1,0 +1,19 @@
+---
+- name: Determine latest GitHub release (local)
+  delegate_to: localhost
+  become: false
+  uri:
+    url: "https://api.github.com/repos/prometheus/node_exporter/releases/latest"
+    body_format: json
+  register: _github_release
+  until: _github_release.status == 200
+  retries: 5
+
+- name: Set node_exporter_version
+  set_fact:
+    node_exporter_version: "{{ _github_release.json.tag_name
+      | regex_replace('^v?([0-9\\.]+)$', '\\1') }}"
+
+- name: Set node_exporter_download_url
+  set_fact:
+    node_exporter_download_url: "https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-{{ node_exporter_arch }}.tar.gz"
