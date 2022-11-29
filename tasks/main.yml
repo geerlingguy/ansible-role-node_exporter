@@ -5,6 +5,12 @@
   changed_when: false
   register: node_exporter_version_check
 
+- name: Configure latest version
+  include_tasks: config-version.yaml
+  when: >
+    node_exporter_version is match("latest")
+    or node_exporter_version is not defined
+
 - name: Download and unarchive node_exporter into temporary location.
   unarchive:
     src: "{{ node_exporter_download_url }}"
