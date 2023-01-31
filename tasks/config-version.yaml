@@ -7,6 +7,7 @@
     body_format: json
   register: _github_release
   until: _github_release.status == 200
+  run_once: true
   retries: 5
 
 - name: Set node_exporter_version
