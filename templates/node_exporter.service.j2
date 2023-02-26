@@ -1,5 +1,6 @@
 [Unit]
 Description=NodeExporter
+After={{ node_exporter_start_after }}
 
 [Service]
 TimeoutStartSec=0
