@@ -5,6 +5,7 @@ Description=NodeExporter
 TimeoutStartSec=0
 User=node_exporter
 ExecStart={{ node_exporter_bin_path }} --web.listen-address={{ node_exporter_host }}:{{ node_exporter_port }} {{ node_exporter_options }}
+Restart={{ node_exporter_restart }}
 
 [Install]
 WantedBy=multi-user.target
