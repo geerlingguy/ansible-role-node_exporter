@@ -18,3 +18,4 @@ node_exporter_options: ''
 
 node_exporter_state: started
 node_exporter_enabled: true
+node_exporter_restart: on-failure
