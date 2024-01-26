@@ -37,6 +37,7 @@
   user:
     name: node_exporter
     shell: /sbin/nologin
+    system: true
     state: present
 
 - name: Copy the node_exporter systemd unit file.
