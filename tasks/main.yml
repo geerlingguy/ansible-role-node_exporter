@@ -38,6 +38,7 @@
     name: node_exporter
     shell: /sbin/nologin
     state: present
+    system: true
 
 - name: Copy the node_exporter systemd unit file.
   template:
