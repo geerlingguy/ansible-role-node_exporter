@@ -12,7 +12,7 @@ node_exporter_arch: "{{ {'i386': '386',
                     'x86_64': 'amd64',
                     'aarch64': 'arm64',
                     'armv7l': 'armv7',
-                    'armv6l': 'armv6'}.get(ansible_architecture, ansible_architecture) }}"
+                    'armv6l': 'armv6'}.get(ansible_architecture, 'amd64') }}"
 
 node_exporter_download_url: https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-{{ node_exporter_arch }}.tar.gz
 
