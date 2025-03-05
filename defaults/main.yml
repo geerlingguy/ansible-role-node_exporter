@@ -6,7 +6,14 @@ node_exporter_version: 'latest'
 # See available releases: https://github.com/prometheus/node_exporter/releases/
 # node_exporter_version: '0.18.1'
 
-node_exporter_arch: 'amd64'
+# Arch gets generated automatically based on the host's architecture.
+# Can be overridden by manually setting node_exporter_arch.
+node_exporter_arch: "{{ {'i386': '386',
+                    'x86_64': 'amd64',
+                    'aarch64': 'arm64',
+                    'armv7l': 'armv7',
+                    'armv6l': 'armv6'}.get(ansible_architecture, ansible_architecture) }}"
+
 node_exporter_download_url: https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-{{ node_exporter_arch }}.tar.gz
 
 node_exporter_bin_path: /usr/local/bin/node_exporter
