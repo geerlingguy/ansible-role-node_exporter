@@ -14,16 +14,23 @@ N/A
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    node_exporter_version: '0.18.1'
+    node_exporter_version: 'latest'
 
-The version of Node exporter to install. Available releases can be found on the [tags](https://github.com/prometheus/node_exporter/tags) listing in the Node exporter repository. Drop the `v` off the tag.
+The version of Node exporter to install. Available releases can be found on the [tags](https://github.com/prometheus/node_exporter/tags) listing in the Node exporter repository. When using a specific version, drop the `v` off the tag (i.e. `node_exporter_version: '0.18.1'`).
+
+If you do not specify a variable, the default of 'latest' will be used. (This currently does not work in check mode.)
 
 If you change the version, the `node_exporter` binary will be replaced with the updated version, and the service will be restarted.
 
-    node_exporter_arch: 'amd64'
+    node_exporter_arch: "{{ {'i386': '386',
+                    'x86_64': 'amd64',
+                    'aarch64': 'arm64',
+                    'armv7l': 'armv7',
+                    'armv6l': 'armv6'}.get(ansible_architecture, 'amd64') }}"
+    
     node_exporter_download_url: https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-{{ node_exporter_arch }}.tar.gz
 
-The architecture and download URL for Node exporter. If you're on a Raspberry Pi running Raspbian, you may need to override the `arch` value with `armv7`.
+The architecture and download URL for Node exporter are being automatically detected and generated. If your architecture is not listed in the possible versions above, you may need to override the `node_exporter_arch` variable.
 
     node_exporter_bin_path: /usr/local/bin/node_exporter
 
