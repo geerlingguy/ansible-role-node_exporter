@@ -23,7 +23,7 @@ If you change the version, the `node_exporter` binary will be replaced with the 
     node_exporter_arch: 'amd64'
     node_exporter_download_url: https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-{{ node_exporter_arch }}.tar.gz
 
-As part of the installation, a task querying github is executed on the local machine running ansible. If a proxy is required to access the internet, you can configure it using the `node_exporter_installation_proxy_env_localhost` variable, i.e.:
+As part of the installation, a task querying github is executed on the local machine which runs ansible. If a proxy is required to access the internet, you can configure it using the `node_exporter_installation_proxy_env_localhost` variable, i.e.:
 
     node_exporter_installation_proxy_env_localhost:
       http_proxy: http://proxy:port
