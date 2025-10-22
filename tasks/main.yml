@@ -33,11 +33,20 @@
     node_exporter_download_check is changed
     or node_exporter_version_check.stdout | length == 0
 
-- name: Create node_exporter user.
+- name: Create node_exporter group (optional fixed GID)
+  ansible.builtin.group:
+    name: node_exporter
+    gid: "{{ node_exporter_gid | default(omit) }}"
+    state: present
+  when: "node_exporter_gid is defined"
+
+- name: Create node_exporter user (optional fixed UID)
   user:
     name: node_exporter
     shell: /sbin/nologin
     create_home: false
+    uid: "{{ node_exporter_uid | default(omit) }}"
+    group: "{{ (node_exporter_gid is defined) | ternary('node_exporter', omit) }}"
     state: present
 
 - name: Copy the node_exporter systemd unit file.
