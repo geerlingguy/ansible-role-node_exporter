@@ -47,6 +47,7 @@
     create_home: false
     uid: "{{ node_exporter_uid | default(omit) }}"
     group: "{{ (node_exporter_gid is defined) | ternary('node_exporter', omit) }}"
+    system: true
     state: present
 
 - name: Copy the node_exporter systemd unit file.
