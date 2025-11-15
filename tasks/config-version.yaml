@@ -9,6 +9,7 @@
   until: _github_release.status == 200
   run_once: true
   retries: 5
+  environment: "{{ node_exporter_installation_proxy_env_localhost }}"
 
 - name: Set node_exporter_version
   set_fact:
