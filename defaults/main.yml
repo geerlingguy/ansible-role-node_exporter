@@ -20,6 +20,8 @@ node_exporter_state: started
 node_exporter_enabled: true
 node_exporter_restart: on-failure
 
+# Set proxy settings for delegated localhost task if required
+node_exporter_installation_proxy_env_localhost: {}
 # Optionally set the uid/gid for the node_exporter user
 # node_exporter_uid: 1001
 # node_exporter_gid: 1001
